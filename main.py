@@ -1,7 +1,6 @@
 import flet as ft
 
 
-
 def main(pagina: ft.Page):
     pagina.bgcolor = ft.colors.BLACK
 
@@ -64,7 +63,54 @@ def main(pagina: ft.Page):
             ]
         )
     )
-    detalhes_produto = ft.Container()
+
+    detalhes_produto = ft.Container(
+        padding=ft.padding.all(30),
+        bgcolor=ft.colors.BLACK87,
+        aspect_ratio=9/16,
+        content=ft.Column(
+            controls=[
+                ft.Text(
+                    value='CAMISAS',
+                    color=ft.colors.AMBER,
+                    weight=ft.FontWeight.BOLD,
+                ),
+                ft.Text(
+                    value='Camisa Lakers Luka Doncic Amarela',
+                    color=ft.colors.WHITE,
+                    weight=ft.FontWeight.BOLD,
+                    size=30,
+                ),
+                ft.Text(
+                    value='Uniforme de basquete',
+                    color=ft.colors.GREY,
+                    italic=True,
+                ),
+                ft.ResponsiveRow(
+                    columns=12,
+                    controls=[
+                        ft.Text(
+                            col={'xs': 12, 'sm': 6},
+                            value='R$ 499,90',
+                            color=ft.colors.WHITE,
+                            size=30,
+                        ),
+                        ft.Row(
+                            col={'xs': 12, 'sm': 6},
+                            controls=[
+                                ft.Icon(
+                                    name=ft.icons.STAR,
+                                    color=ft.colors.AMBER if _ < 4 else ft.colors.WHITE,
+                                ) for _ in range(5)
+                            ]
+                        )
+                    ]
+                )
+
+            ]
+
+        )
+    )
 
     layout = ft.Container(
         width=900,
@@ -75,7 +121,7 @@ def main(pagina: ft.Page):
             spacing=0,
             run_spacing=0,
             controls=[
-                imagens_produto,
+                #imagens_produto,
                 detalhes_produto
             ]
         )
