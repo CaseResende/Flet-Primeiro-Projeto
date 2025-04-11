@@ -105,6 +105,23 @@ def main(pagina: ft.Page):
                             ]
                         )
                     ]
+                ),
+                ft.Tabs(
+                    tabs=[
+                        ft.Tab(
+                            text='Descrição',
+                            content=ft.Container(
+                                padding=ft.padding.all(10),
+                                content=ft.Text(
+                                    value=''
+                                )
+
+                            )
+                        ),
+                        ft.Tab(
+                            text='Detalhes',
+                        )
+                    ]
                 )
 
             ]
@@ -121,7 +138,7 @@ def main(pagina: ft.Page):
             spacing=0,
             run_spacing=0,
             controls=[
-                imagens_produto,
+                #imagens_produto,
                 detalhes_produto
             ]
         )
