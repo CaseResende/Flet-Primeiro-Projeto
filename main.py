@@ -121,7 +121,7 @@ def main(pagina: ft.Page):
             spacing=0,
             run_spacing=0,
             controls=[
-                #imagens_produto,
+                imagens_produto,
                 detalhes_produto
             ]
         )
