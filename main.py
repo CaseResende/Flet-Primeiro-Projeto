@@ -2,7 +2,7 @@ import flet as ft
 
 
 def main(pagina: ft.Page):
-    pagina.bgcolor = ft.colors.BLACK
+    pagina.theme_mode = ft.ThemeMode.DARK
 
 
     def change_main_image(e):
@@ -107,19 +107,58 @@ def main(pagina: ft.Page):
                     ]
                 ),
                 ft.Tabs(
+                    selected_index=0,
+                    height=150,
+                    indicator_color=ft.colors.AMBER,
+                    label_color=ft.colors.AMBER,
+                    unselected_label_color=ft.colors.GREY,
                     tabs=[
                         ft.Tab(
                             text='Descrição',
                             content=ft.Container(
                                 padding=ft.padding.all(10),
                                 content=ft.Text(
-                                    value=''
+                                    value='O Los Angeles Lakers são um time de basquete localizado em Los Angeles, Califórnia. São conhecidos por serem um time das estrelas. Vestindo a camisa 77, Luka Doncic é a principal estrela da franquia. Que possui seu uniforme na versão Amarela.',
+                                    color=ft.colors.GREY,
                                 )
-
                             )
                         ),
                         ft.Tab(
                             text='Detalhes',
+                            content=ft.Container(
+                                padding=ft.padding.all(10),
+                                content=ft.Text(
+                                    value='Tabela de tamanhos:\nP = 100cm x 50cm\nM = 112cm x 54cm\nG = 125cm x 58cm\nGG = 130cm x 62cm',
+                                    color=ft.colors.GREY,
+                                )
+                            )
+                        )
+                    ]
+                ),
+                ft.ResponsiveRow(
+                    columns=12,
+                    controls=[
+                        ft.Dropdown(
+                            col=6,
+                            label='Cor',
+                            label_style=ft.TextStyle(color=ft.colors.WHITE, size=16),
+                            border_color=ft.colors.GREY,
+                            border_width=0.5,
+                            options=[
+                                ft.dropdown.Option(text='Amarela'),
+                                ft.dropdown.Option(text='Branca'),
+                                ft.dropdown.Option(text='Roxa'),
+                            ]
+                        ),
+                        ft.Dropdown(
+                            col=6,
+                            label='Quantidade',
+                            label_style=ft.TextStyle(color=ft.colors.WHITE, size=16),
+                            border_color=ft.colors.GREY,
+                            border_width=0.5,
+                            options=[
+                                ft.dropdown.Option(text=f'{num} unid.') for num in range(1, 11)
+                            ]
                         )
                     ]
                 )
@@ -148,4 +187,3 @@ def main(pagina: ft.Page):
     pagina.add(layout)
 
 ft.app(target=main)
-
