@@ -18,6 +18,7 @@ def main(pagina: ft.Page):
 
 
     imagens_produto = ft.Container(
+        col={'xl': 12, 'md': 6},
         bgcolor=ft.colors.WHITE,
         padding=ft.padding.all(30),
         aspect_ratio=9/16,
@@ -65,6 +66,7 @@ def main(pagina: ft.Page):
     )
 
     detalhes_produto = ft.Container(
+        col={'xl': 12, 'md': 6},
         padding=ft.padding.all(30),
         bgcolor=ft.colors.BLACK87,
         aspect_ratio=9/16,
@@ -165,7 +167,16 @@ def main(pagina: ft.Page):
                         )
                     ]
                 ),
-
+                ft.ElevatedButton(
+                    width=900,
+                    text='Adicionar ao carrinho',
+                    style=ft.ButtonStyle(
+                        padding=ft.padding.all(20),
+                        side=ft.BorderSide(width=2, color=ft.colors.WHITE),
+                        bgcolor=ft.colors.BLACK,
+                        color=ft.colors.WHITE
+                    )
+                )
             ]
         )
     )
@@ -179,7 +190,7 @@ def main(pagina: ft.Page):
             spacing=0,
             run_spacing=0,
             controls=[
-                #imagens_produto,
+                imagens_produto,
                 detalhes_produto
             ]
         )
