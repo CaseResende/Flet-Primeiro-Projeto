@@ -68,6 +68,7 @@ def main(pagina: ft.Page):
         padding=ft.padding.all(30),
         bgcolor=ft.colors.BLACK87,
         aspect_ratio=9/16,
+        expand=True,
         content=ft.Column(
             controls=[
                 ft.Text(
@@ -139,7 +140,8 @@ def main(pagina: ft.Page):
                     columns=12,
                     controls=[
                         ft.Dropdown(
-                            col=6,
+                            col={'xs': 12, 'sm': 6},
+                            width=float('inf'),
                             label='Cor',
                             label_style=ft.TextStyle(color=ft.colors.WHITE, size=16),
                             border_color=ft.colors.GREY,
@@ -151,7 +153,8 @@ def main(pagina: ft.Page):
                             ]
                         ),
                         ft.Dropdown(
-                            col=6,
+                            col={'xs': 12, 'sm': 6},
+                            width=float('inf'),
                             label='Quantidade',
                             label_style=ft.TextStyle(color=ft.colors.WHITE, size=16),
                             border_color=ft.colors.GREY,
@@ -161,10 +164,9 @@ def main(pagina: ft.Page):
                             ]
                         )
                     ]
-                )
+                ),
 
             ]
-
         )
     )
 
