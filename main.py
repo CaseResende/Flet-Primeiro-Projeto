@@ -14,7 +14,7 @@ def main(pagina: ft.Page):
     camisa_padrao = camisas['amarela']
 
 
-    def change_main_image(e):
+    def alterar_imagem_principal(e):
         for elemento in opcoes.controls:
             if elemento == e.control:
                 elemento.opacity = 1
@@ -48,7 +48,7 @@ def main(pagina: ft.Page):
                             width=80,
                             height=80,
                             opacity=1,
-                            on_click=change_main_image
+                            on_click=alterar_imagem_principal
                         ),
                         ft.Container(
                             content=ft.Image(
@@ -57,7 +57,7 @@ def main(pagina: ft.Page):
                             width=80,
                             height=80,
                             opacity=0.5,
-                            on_click=change_main_image
+                            on_click=alterar_imagem_principal
                         ),
                         ft.Container(
                             content=ft.Image(
@@ -66,7 +66,7 @@ def main(pagina: ft.Page):
                             width=80,
                             height=80,
                             opacity=0.5,
-                            on_click=change_main_image
+                            on_click=alterar_imagem_principal
                         )
                     ]
                 )
