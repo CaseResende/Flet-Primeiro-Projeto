@@ -5,16 +5,29 @@ def main(pagina: ft.Page):
     pagina.theme_mode = ft.ThemeMode.DARK
 
 
+    camisas = {
+        'amarela': {'cor': 'amarela', 'imagem': 'https://dasports.com.br/cdn/shop/files/los-angeles-lakers-nike-icon-edition-swingman-jersey-gold-luka-don_C4_8Di_C4_87-youth_ss5_p-202849486_pv-1_u-ckv5fga0j3hsrgotxrrp_v-xalafditxpnrpdb7y4ef.png?v=1738806116'},
+        'branca': {'cor': 'branca', 'imagem': 'https://images.footballfanatics.com/los-angeles-lakers/los-angeles-lakers-nike-association-edition-swingman-jersey-white-luka-don%C4%8Di%C4%87-unisex_ss5_p-202849487+pv-1+u-sa2i3cumkfim08urwvvc+v-mqltjo7yy92yntc9d7b9.jpg?_hv=2&w=900'},
+        'roxa': {'cor': 'roxa', 'imagem': 'https://acdn-us.mitiendanube.com/stores/002/794/749/products/big-6236de797ebdf79ed417388408266384-1024-1024.jpg'}
+    }
+
+    camisa_padrao = camisas['amarela']
+
+
+
     def change_main_image(e):
-        for elemento in options.controls:
+        for elemento in opcoes.controls:
             if elemento == e.control:
                 elemento.opacity = 1
-                main_image.src = elemento.content.src
+                imagem_principal.src = elemento.content.src
             else:
                 elemento.opacity = 0.5
 
-        main_image.update()
-        options.update()
+        imagem_principal.update()
+        opcoes.update()
+
+
+
 
 
     imagens_produto = ft.Container(
@@ -25,16 +38,16 @@ def main(pagina: ft.Page):
         content=ft.Column(
             alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
             controls=[
-                main_image := ft.Image(
-                    src='https://dasports.com.br/cdn/shop/files/los-angeles-lakers-nike-icon-edition-swingman-jersey-gold-luka-don_C4_8Di_C4_87-youth_ss5_p-202849486_pv-1_u-ckv5fga0j3hsrgotxrrp_v-xalafditxpnrpdb7y4ef.png?v=1738806116',
+                imagem_principal := ft.Image(
+                    src=camisa_padrao['imagem'],
                 ),
 
-                options := ft.Row(
+                opcoes := ft.Row(
                     alignment=ft.MainAxisAlignment.CENTER,
                     controls=[
                         ft.Container(
                             content=ft.Image(
-                                src='https://dasports.com.br/cdn/shop/files/los-angeles-lakers-nike-icon-edition-swingman-jersey-gold-luka-don_C4_8Di_C4_87-youth_ss5_p-202849486_pv-1_u-ckv5fga0j3hsrgotxrrp_v-xalafditxpnrpdb7y4ef.png?v=1738806116',
+                                src=camisas['amarela']['imagem'],
                             ),
                             width=80,
                             height=80,
@@ -43,7 +56,7 @@ def main(pagina: ft.Page):
                         ),
                         ft.Container(
                             content=ft.Image(
-                                src='https://images.footballfanatics.com/los-angeles-lakers/los-angeles-lakers-nike-association-edition-swingman-jersey-white-luka-don%C4%8Di%C4%87-unisex_ss5_p-202849487+pv-1+u-sa2i3cumkfim08urwvvc+v-mqltjo7yy92yntc9d7b9.jpg?_hv=2&w=900',
+                                src=camisas['branca']['imagem'],
                             ),
                             width=80,
                             height=80,
@@ -52,7 +65,7 @@ def main(pagina: ft.Page):
                         ),
                         ft.Container(
                             content=ft.Image(
-                                src='https://acdn-us.mitiendanube.com/stores/002/794/749/products/big-6236de797ebdf79ed417388408266384-1024-1024.jpg',
+                                src=camisas['roxa']['imagem'],
                             ),
                             width=80,
                             height=80,
@@ -79,7 +92,7 @@ def main(pagina: ft.Page):
                     weight=ft.FontWeight.BOLD,
                 ),
                 ft.Text(
-                    value='Camisa Lakers Luka Doncic Amarela',
+                    value=f'Camisa Lakers Luka Doncic Amarela',
                     color=ft.colors.WHITE,
                     weight=ft.FontWeight.BOLD,
                     size=30,
@@ -111,7 +124,7 @@ def main(pagina: ft.Page):
                 ),
                 ft.Tabs(
                     selected_index=0,
-                    height=150,
+                    height=200,
                     indicator_color=ft.colors.AMBER,
                     label_color=ft.colors.AMBER,
                     unselected_label_color=ft.colors.GREY,
@@ -121,7 +134,7 @@ def main(pagina: ft.Page):
                             content=ft.Container(
                                 padding=ft.padding.all(10),
                                 content=ft.Text(
-                                    value='O Los Angeles Lakers são um time de basquete localizado em Los Angeles, Califórnia. São conhecidos por serem um time das estrelas. Vestindo a camisa 77, Luka Doncic é a principal estrela da franquia. Que possui seu uniforme na versão Amarela.',
+                                    value=f'O Los Angeles Lakers são um time de basquete localizado em Los Angeles, Califórnia. São conhecidos por serem um time das estrelas. Vestindo a camisa 77, Luka Doncic é a principal estrela da franquia. Que possui seu uniforme na versão Amarela.',
                                     color=ft.colors.GREY,
                                 )
                             )
