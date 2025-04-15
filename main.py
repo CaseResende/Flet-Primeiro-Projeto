@@ -14,7 +14,6 @@ def main(pagina: ft.Page):
     camisa_padrao = camisas['amarela']
 
 
-
     def change_main_image(e):
         for elemento in opcoes.controls:
             if elemento == e.control:
@@ -25,9 +24,6 @@ def main(pagina: ft.Page):
 
         imagem_principal.update()
         opcoes.update()
-
-
-
 
 
     imagens_produto = ft.Container(
