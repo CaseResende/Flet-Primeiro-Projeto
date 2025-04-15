@@ -13,6 +13,17 @@ def main(pagina: ft.Page):
 
     camisa_padrao = camisas['amarela']
 
+    nome_camisa = ft.Text(
+        value=f'Camisa Lakers Luka Doncic {camisa_padrao['cor'].capitalize()}',
+        color=ft.colors.WHITE,
+        weight=ft.FontWeight.BOLD,
+        size=30,
+    )
+
+    descricao_tab = ft.Text(
+        value=f'O Los Angeles Lakers são um time de basquete localizado em Los Angeles, Califórnia. São conhecidos por serem um time das estrelas. Vestindo a camisa 77, Luka Doncic é a principal estrela da franquia. Que possui seu uniforme na versão Amarela.',
+        color=ft.colors.GREY,
+    )
 
     def alterar_imagem_principal(e):
         for elemento in opcoes.controls:
@@ -24,6 +35,18 @@ def main(pagina: ft.Page):
 
         imagem_principal.update()
         opcoes.update()
+
+        # Identificar qual camisa foi clicada pela imagem
+        for chave, dados in camisas.items():
+            if dados['imagem'] == e.control.content.src:
+                cor = dados['cor']
+                break
+
+        # Atualizar nome e descrição
+        nome_camisa.value = f'Camisa Lakers Luka Doncic {cor.capitalize()}'
+        descricao_tab.value = f'O Los Angeles Lakers são um time de basquete localizado em Los Angeles, Califórnia. São conhecidos por serem um time das estrelas. Vestindo a camisa 77, Luka Doncic é a principal estrela da franquia. Que possui seu uniforme na versão {cor}.'
+        nome_camisa.update()
+        descricao_tab.update()
 
 
     imagens_produto = ft.Container(
@@ -87,12 +110,7 @@ def main(pagina: ft.Page):
                     color=ft.colors.AMBER,
                     weight=ft.FontWeight.BOLD,
                 ),
-                ft.Text(
-                    value=f'Camisa Lakers Luka Doncic Amarela',
-                    color=ft.colors.WHITE,
-                    weight=ft.FontWeight.BOLD,
-                    size=30,
-                ),
+                nome_camisa,
                 ft.Text(
                     value='Uniforme de basquete',
                     color=ft.colors.GREY,
@@ -129,10 +147,7 @@ def main(pagina: ft.Page):
                             text='Descrição',
                             content=ft.Container(
                                 padding=ft.padding.all(10),
-                                content=ft.Text(
-                                    value=f'O Los Angeles Lakers são um time de basquete localizado em Los Angeles, Califórnia. São conhecidos por serem um time das estrelas. Vestindo a camisa 77, Luka Doncic é a principal estrela da franquia. Que possui seu uniforme na versão Amarela.',
-                                    color=ft.colors.GREY,
-                                )
+                                content=descricao_tab,
                             )
                         ),
                         ft.Tab(
@@ -152,7 +167,7 @@ def main(pagina: ft.Page):
                     controls=[
                         ft.Dropdown(
                             col={'xs': 12, 'sm': 6},
-                            width=float('inf'),
+                            alignment=ft.alignment.top_left,
                             label='Cor',
                             label_style=ft.TextStyle(color=ft.colors.WHITE, size=16),
                             border_color=ft.colors.GREY,
@@ -165,7 +180,7 @@ def main(pagina: ft.Page):
                         ),
                         ft.Dropdown(
                             col={'xs': 12, 'sm': 6},
-                            width=float('inf'),
+                            alignment=ft.alignment.top_left,
                             label='Quantidade',
                             label_style=ft.TextStyle(color=ft.colors.WHITE, size=16),
                             border_color=ft.colors.GREY,
