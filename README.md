@@ -62,6 +62,6 @@ O layout principal é dividido em dois blocos:
 
 ## 📄 Licença
 
-Este projeto está licenciado sob a Licença MIT – veja o arquivo [LICENSE](https://github.com/CaseResende/Flet-Primeiro-Projeto/blob/main/LICENSE)) para mais detalhes.
+Este projeto está licenciado sob a Licença MIT – veja o arquivo [LICENSE](https://github.com/CaseResende/Flet-Primeiro-Projeto/blob/main/LICENSE) para mais detalhes.
 
 Desenvolvido por **[Carlos André Resende Belo](https://github.com/CaseResende)**. 😎
